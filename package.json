@@ -1,0 +1,22 @@
+{
+  "name": "acl",
+  "version": "1.0.0",
+  "description": "RBAC or Role Based Access Control is an access control method where each identity is assigned a role and the roles determine what access rights the identity has. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixeltag/ACL.git"
+  },
+  "keywords": [
+    "ACL"
+  ],
+  "author": "Ihab Youssef",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pixeltag/ACL/issues"
+  },
+  "homepage": "https://github.com/pixeltag/ACL#readme"
+}
