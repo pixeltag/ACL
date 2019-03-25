@@ -1,3 +1,15 @@
 extend layout
 block content
     h2 #{title}
+    form(action="/articles/add", method="post")
+        .form-group
+            label(for="title") Title
+            input.form-control(name="title" type="text")
+        .form-group
+            label(for="author") Author
+            input.form-control(name="author" type="text")
+        .form-group
+            label(for="body") Body
+            input.form-control(name="body" type="text")
+        .form-group
+            input.btn.btn-primary(type="submit" value="Add Articles")
