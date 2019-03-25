@@ -4,7 +4,7 @@
   "description": "RBAC or Role Based Access Control is an access control method where each identity is assigned a role and the roles determine what access rights the identity has. ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/pixeltag/ACL/issues"
   },
-  "homepage": "https://github.com/pixeltag/ACL#readme"
+  "homepage": "https://github.com/pixeltag/ACL#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.19",
+    "pug": "^2.0.3"
+  }
 }
