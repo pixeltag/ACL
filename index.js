@@ -29,6 +29,8 @@ db.once('open' , function() {
 
 app.set('views' , path.join(__dirname , 'src/views'));
 app.set('view engine' , 'pug');
+app.use(express.static(path.join(__dirname , 'public')));
+
 
 app.get('/' , function(request , resolve) {
     Articles.find({} , function(err , articles) {
@@ -48,6 +50,22 @@ app.get('/article/add' ,  function(request , resolve) {
         title : 'Add Article'
     })
 });
+
+
+// show article by ID
+
+app.get('/article/:id' , function(request , response) {
+    Articles.findById(request.params.id , function(err , res) {
+        if(err) {
+            console.log(err);
+            return
+        } else {
+            response.render('article' , {
+                article : res
+            })
+        }
+    })
+})
 
 app.post('/articles/add' , function(request , response) {
     let article = new Articles;
