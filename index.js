@@ -45,11 +45,21 @@ app.get('/' , function(request , resolve) {
     })
 });
 
-app.get('/article/add' ,  function(request , resolve) {
-    resolve.render('add_article' , {
-        title : 'Add Article'
+app.get('/article/edit/:id' ,  function(request , resolve) {
+    Articles.findById(request.params.id , function(err , res) {
+        if(err) {
+            console.log(err);
+            return 
+        } else {
+            console.log(res)
+            resolve.render('edit_article' , {
+                title : 'Edit Article',
+                article : res
+            })
+        }
     })
 });
+
 
 
 // show article by ID
@@ -83,5 +93,26 @@ app.post('/articles/add' , function(request , response) {
     })
 
 })
+
+// Delete Article
+
+app.post('/article/edit/:id' , function(request , response) {
+    let article = {};
+    let query = {_id : request.params.id}
+    article.title = request.body.title;
+    article.author = request.body.author;
+    article.body = request.body.body;
+
+    Articles.update(query , article, function(err) {
+        if(err) {
+            console.log(err);
+        } else {
+            response.redirect('/');
+        }
+    })
+
+})
+
+
 
 app.listen(3000);
